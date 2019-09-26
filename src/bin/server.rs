@@ -2,6 +2,9 @@
 #[macro_use]
 extern crate log;
 
+#[path = "../log_utils.rs"]
+mod log_util;
+
 use std::io::Read;
 use std::sync::Arc;
 use std::{io, thread};
@@ -26,6 +29,7 @@ impl Echo for EchoService {
 }
 
 fn main() {
+    let _guard = log_util::init_log(None);
     let env = Arc::new(Environment::new(1));
     let service = create_echo(EchoService);
 

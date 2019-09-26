@@ -11,6 +11,11 @@ protobuf = "2.8.0"
 futures = "0.1.29"
 log = "0.4.8"
 grpcio = "0.5.0-alpha.4"
+slog = "2.0"
+slog-async = "2.1"
+slog-stdlog = "3.0"
+slog-scope = "4.0"
+slog-term = "2.2"
 
 [build-dependencies]
 grpcio-compiler = "0.5.0-alpha.2"
