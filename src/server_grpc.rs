@@ -18,27 +18,27 @@
 #![allow(unused_imports)]
 #![allow(unused_results)]
 
-const METHOD_ECHO_SERVICE_ECHO: ::grpcio::Method<super::server::EchoRequest, super::server::EchoResponse> = ::grpcio::Method {
+const METHOD_ECHO_ECHO: ::grpcio::Method<super::server::EchoRequest, super::server::EchoResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
-    name: "/echo.EchoService/Echo",
+    name: "/echo.Echo/Echo",
     req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
 #[derive(Clone)]
-pub struct EchoServiceClient {
+pub struct EchoClient {
     client: ::grpcio::Client,
 }
 
-impl EchoServiceClient {
+impl EchoClient {
     pub fn new(channel: ::grpcio::Channel) -> Self {
-        EchoServiceClient {
+        EchoClient {
             client: ::grpcio::Client::new(channel),
         }
     }
 
     pub fn echo_opt(&self, req: &super::server::EchoRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::server::EchoResponse> {
-        self.client.unary_call(&METHOD_ECHO_SERVICE_ECHO, req, opt)
+        self.client.unary_call(&METHOD_ECHO_ECHO, req, opt)
     }
 
     pub fn echo(&self, req: &super::server::EchoRequest) -> ::grpcio::Result<super::server::EchoResponse> {
@@ -46,7 +46,7 @@ impl EchoServiceClient {
     }
 
     pub fn echo_async_opt(&self, req: &super::server::EchoRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::server::EchoResponse>> {
-        self.client.unary_call_async(&METHOD_ECHO_SERVICE_ECHO, req, opt)
+        self.client.unary_call_async(&METHOD_ECHO_ECHO, req, opt)
     }
 
     pub fn echo_async(&self, req: &super::server::EchoRequest) -> ::grpcio::Result<::grpcio::ClientUnaryReceiver<super::server::EchoResponse>> {
@@ -57,14 +57,14 @@ impl EchoServiceClient {
     }
 }
 
-pub trait EchoService {
+pub trait Echo {
     fn echo(&mut self, ctx: ::grpcio::RpcContext, req: super::server::EchoRequest, sink: ::grpcio::UnarySink<super::server::EchoResponse>);
 }
 
-pub fn create_echo_service<S: EchoService + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
+pub fn create_echo<S: Echo + Send + Clone + 'static>(s: S) -> ::grpcio::Service {
     let mut builder = ::grpcio::ServiceBuilder::new();
     let mut instance = s.clone();
-    builder = builder.add_unary_handler(&METHOD_ECHO_SERVICE_ECHO, move |ctx, req, resp| {
+    builder = builder.add_unary_handler(&METHOD_ECHO_ECHO, move |ctx, req, resp| {
         instance.echo(ctx, req, resp)
     });
     builder.build()

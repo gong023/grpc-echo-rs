@@ -8,6 +8,9 @@ edition = "2018"
 
 [dependencies]
 protobuf = "2.8.0"
+futures = "0.1.29"
+log = "0.4.8"
+grpcio = "0.5.0-alpha.4"
 
 [build-dependencies]
 grpcio-compiler = "0.5.0-alpha.2"
