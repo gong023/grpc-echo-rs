@@ -37,7 +37,7 @@ fn main() {
 
     let mut server = ServerBuilder::new(env)
         .register_service(service)
-        .bind("127.0.0.1", 50_051) // 327761
+        .bind("127.0.0.1", 50_051)
         .channel_args(ch_builder.build_args())
         .build()
         .unwrap();
