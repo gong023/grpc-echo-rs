@@ -15,5 +15,5 @@ spec:
           imagePullPolicy: Always
           ports:
             - name: grpc
-              containerPort: 80
+              containerPort: 50051
               protocol: TCP
