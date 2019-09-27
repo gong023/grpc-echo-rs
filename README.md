@@ -1,0 +1,1 @@
+[![Codefresh build status](https://g.codefresh.io/api/badges/pipeline/gong032/test%2Ftest?key=eyJhbGciOiJIUzI1NiJ9.NWQ4YzYwZTE3MDY4ZjlkNDVmMWQzZGNm.ulroNiAkzngo1iOwNYopEdG0FwcMJRKdeyz5nxlW5tI&type=cf-1)]( https://g.codefresh.io/pipelines/test/builds?filter=trigger:build~Build;pipeline:5d8d4d8d19be21110b987456~test)
