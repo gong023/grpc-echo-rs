@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: grpc-echo-rs-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: grpc-echo-rs
+    spec:
+      containers:
+        - name: server
+          image: gong023/grpc-echo-rs:latest
+          imagePullPolicy: Always
+          ports:
+            - name: grpc
+              containerPort: 80
+              protocol: TCP
